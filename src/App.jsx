@@ -3,97 +3,114 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300">
         {/* Header */}
         <div className="p-6 border-b border-gray-100">
-          <h1 className="text-2xl font-light text-gray-800">Personal Hub</h1>
-          <p className="text-gray-500 text-sm mt-1">Select an option below</p>
-        </div>
-
-        {/* Navigation Tabs */}
-        <div className="flex border-b border-gray-100">
-          <button
-            onClick={() => setActiveTab('message')}
-            className={`flex-1 py-4 text-center transition-all duration-200 ${
-              activeTab === 'message' 
-                ? 'text-blue-600 border-b-2 border-blue-600 font-medium' 
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            View Message
-          </button>
-          <button
-            onClick={() => setActiveTab('about')}
-            className={`flex-1 py-4 text-center transition-all duration-200 ${
-              activeTab === 'about' 
-                ? 'text-blue-600 border-b-2 border-blue-600 font-medium' 
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            About Me
-          </button>
-        </div>
-
-        {/* Content Area */}
-        <div className="p-6 min-h-[200px]">
-          {activeTab === 'message' && (
-            <div className="space-y-4 animate-fadeIn">
-              <div className="flex items-start space-x-3">
-                <div className="bg-blue-100 p-2 rounded-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                </div>
-                <div>
-                  <h2 className="font-medium text-gray-800">New Message</h2>
-                  <p className="text-gray-600 mt-1">Thanks for checking out my portfolio! Feel free to reach out with any questions.</p>
-                </div>
-              </div>
-              <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm">
-                Mark as Read
-              </button>
+          <div className="flex items-center space-x-3">
+            <div className="bg-blue-100 p-2 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
             </div>
-          )}
+            <h1 className="text-xl font-light text-gray-800">Chatopia</h1>
+          </div>
+        </div>
 
-          {activeTab === 'about' && (
-            <div className="space-y-4 animate-fadeIn">
-              <div className="flex flex-col items-center text-center">
-                <div className="bg-gray-200 rounded-full p-1">
-                  <div className="bg-gray-300 rounded-full p-1">
-                    <div className="bg-white rounded-full p-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
+        {/* Menu Options */}
+        <div className="p-6 space-y-4">
+          {/* Go to Chat Button */}
+          <button
+            onClick={() => {
+              console.log('Navigating to chat...');
+              // Add navigation logic here
+            }}
+            className="w-full flex items-center justify-between p-4 bg-blue-50 text-blue-700 rounded-xl hover:bg-blue-100 transition-all duration-200 group"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <span className="font-medium">Go to Chat</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* About Button */}
+          <button
+            onClick={() => setActiveSection(activeSection === 'about' ? null : 'about')}
+            className="w-full flex items-center justify-between p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-all duration-200 group"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="bg-gray-600 p-2 rounded-lg group-hover:bg-gray-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <span className="font-medium">About</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 transition-transform duration-200 ${activeSection === 'about' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* About Section (Collapsible) */}
+        {activeSection === 'about' && (
+          <div className="px-6 pb-6 animate-fadeIn">
+            <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="bg-gray-300 rounded-full p-1">
+                  <div className="bg-white rounded-full p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                   </div>
                 </div>
-                <h2 className="text-lg font-medium text-gray-800 mt-4">John Doe</h2>
-                <p className="text-gray-600 text-sm">Frontend Developer & UI Designer</p>
+                <div>
+                  <h3 className="font-medium text-gray-800">ChatApp Team</h3>
+                  <p className="text-sm text-gray-600">Version 1.0.0</p>
+                </div>
               </div>
-              <div className="space-y-2 text-sm text-gray-600">
-                <p>📍 San Francisco, CA</p>
-                <p>💼 5+ years in web development</p>
-                <p>🎨 Passionate about minimal design</p>
+              
+              <div className="space-y-3 text-sm text-gray-700">
+                <p>Simple. Secure. Instant messaging.</p>
+                <div className="pt-3 border-t border-gray-200 space-y-2">
+                  <p className="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>End-to-end encryption</span>
+                  </p>
+                  <p className="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>No ads or tracking</span>
+                  </p>
+                  <p className="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Open source</span>
+                  </p>
+                </div>
               </div>
-              <button className="w-full py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
-                View Full Profile
-              </button>
+              
+              <div className="mt-4 flex justify-between">
+                <button className="text-sm text-blue-600 hover:text-blue-800">Privacy Policy</button>
+                <button className="text-sm text-blue-600 hover:text-blue-800">Terms of Service</button>
+              </div>
             </div>
-          )}
-
-          {!activeTab && (
-            <div className="flex flex-col items-center justify-center h-full text-center text-gray-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mb-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <p>Select an option to view content</p>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
